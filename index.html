@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WingMann - Waitlist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Opening splash screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <img src="6c359846004a91d18c1b0aad970d6e20805aa5f0.png" alt="WingMann Logo" class="splash-logo">
+            <h1 class="splash-text">WingMann</h1>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div id="main-content" class="main-content hidden">
+        <!-- Logo at top -->
+        <header class="logo-header">
+            <div class="logo-container" onclick="goToFirstPage()">
+                <img src="6c359846004a91d18c1b0aad970d6e20805aa5f0.png" alt="WingMann Logo" class="logo-image">
+            </div>
+            <h1 class="logo" onclick="goToFirstPage()">WingMann</h1>
+        </header>
+
+        <!-- Hero section with character and text -->
+        <main class="hero-section">
+            <div class="content-wrapper">
+                <!-- Animated character -->
+                <div class="character-container">
+                    <div class="character">
+                        <img src="Character-removebg-preview.png" alt="Wingy Character" class="character-image">
+                    </div>
+                </div>
+
+                <!-- Text and feature info -->
+                <div class="text-content">
+                    <h2 class="greeting-title">Hey Buddy, I'm your WingMann - here to save you from</h2>
+                    
+                    <div class="feature-info feature-info-page1">
+                        <div class="feature-item">
+                            <h3 class="feature-title">People with no intent</h3>
+                            <p class="feature-description">If they don't know what they want, they don't get access to you.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3 class="feature-title">People, not ready for something real</h3>
+                            <p class="feature-description">Emotional confusion shouldn't be your responsibility.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3 class="feature-title">People who disappear after matching</h3>
+                            <p class="feature-description">Silence isn't chemistry, it's disinterest.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3 class="feature-title">People who text endlessly but never meet.</h3>
+                            <p class="feature-description">Connection is built in real life, not in chat bubbles</p>
+                        </div>
+                    </div>
+
+                    <button id="lets-do-it-btn" class="lets-do-it-btn">let's do it</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Second Page - How I Do It -->
+    <div id="second-page" class="second-page hidden">
+        <!-- Logo at top -->
+        <header class="logo-header">
+            <div class="logo-container" onclick="goToFirstPage()">
+                <img src="6c359846004a91d18c1b0aad970d6e20805aa5f0.png" alt="WingMann Logo" class="logo-image">
+            </div>
+            <h1 class="logo" onclick="goToFirstPage()">WingMann</h1>
+        </header>
+
+        <!-- How I Do It Section -->
+        <main class="how-i-do-it-section">
+            <div class="how-i-do-it-wrapper">
+                <!-- Character on left -->
+                <div class="character-container-second">
+                    <div class="character-second">
+                        <img src="Character-removebg-preview.png" alt="Wingy Character" class="character-image">
+                    </div>
+                </div>
+
+                <!-- Text and feature info -->
+                <div class="how-i-do-it-content">
+                    <h2 class="how-i-do-it-title">How do I do it?</h2>
+                    
+                    <div class="feature-info feature-info-page2">
+                        <div class="feature-item">
+                            <h3 class="feature-title">First I understand what you're truly looking for.</h3>
+                            <p class="feature-description">No guessing, no pretending - just clarity</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3 class="feature-title">Then, I match you with someone aligned with that intent.</h3>
+                            <p class="feature-description">Same page, same pace, same seriousness.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3 class="feature-title">And when it feels right, I help you meet in real life.</h3>
+                            <p class="feature-description">Because connection doesn't happen in chats - it happens face to face</p>
+                        </div>
+                    </div>
+                    
+                    <button class="page-2-next-btn" onclick="goToThirdPage()">Continue</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Third Page - Are You? -->
+    <div id="third-page" class="third-page hidden">
+        <!-- Logo at top -->
+        <header class="logo-header">
+            <div class="logo-container" onclick="goToFirstPage()">
+                <img src="6c359846004a91d18c1b0aad970d6e20805aa5f0.png" alt="WingMann Logo" class="logo-image">
+            </div>
+            <h1 class="logo" onclick="goToFirstPage()">WingMann</h1>
+        </header>
+
+        <!-- Are You Section -->
+        <main class="are-you-section">
+            <div class="are-you-wrapper">
+                <!-- Questions Content -->
+                <div class="questions-content">
+                    <h2 class="are-you-title">okay, real talk time </h2>
+                    
+                    <div class="questions-list">
+                        <div class="question-item" data-question="0">
+                            <p class="question-text">Do you believe dating should be intentional, not endless swiping?</p>
+                            <div class="yes-no-buttons">
+                                <button class="answer-btn yes-btn" data-answer="yes">Yes</button>
+                                <button class="answer-btn no-btn" data-answer="no">No</button>
+                            </div>
+                        </div>
+
+                        <div class="question-item" data-question="1">
+                            <p class="question-text">Do you value real meetings over long, never-ending chats?</p>
+                            <div class="yes-no-buttons">
+                                <button class="answer-btn yes-btn" data-answer="yes">Yes</button>
+                                <button class="answer-btn no-btn" data-answer="no">No</button>
+                            </div>
+                        </div>
+
+                        <div class="question-item" data-question="2">
+                            <p class="question-text">Are you at a stage in life where emotional maturity matters more than attention?</p>
+                            <div class="yes-no-buttons">
+                                <button class="answer-btn yes-btn" data-answer="yes">Yes</button>
+                                <button class="answer-btn no-btn" data-answer="no">No</button>
+                            </div>
+                        </div>
+
+                        <div class="question-item" data-question="3">
+                            <p class="question-text">Do you prefer fewer, meaningful connections over many random matches?</p>
+                            <div class="yes-no-buttons">
+                                <button class="answer-btn yes-btn" data-answer="yes">Yes</button>
+                                <button class="answer-btn no-btn" data-answer="no">No</button>
+                            </div>
+                        </div>
+
+                        <div class="question-item" data-question="4">
+                            <p class="question-text">Are you serious about investing time and effort into one genuine connection?</p>
+                            <div class="yes-no-buttons">
+                                <button class="answer-btn yes-btn" data-answer="yes">Yes</button>
+                                <button class="answer-btn no-btn" data-answer="no">No</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="page-nav-buttons-row">
+                        <button class="nav-btn prev-btn" onclick="goToSecondPage()">← back</button>
+                        <button id="submit-btn" class="submit-btn">let's see if you made it! </button>
+                    </div>
+                    
+                    <!-- Error message - red box on mobile -->
+                    <div id="error-message" class="error-message hidden"></div>
+                </div>
+                
+                <!-- Character on right side -->
+                <div class="character-container-third">
+                    <div class="character-third">
+                        <img src="Gemini_Generated_Image_suj4dhsuj4dhsuj4-removebg-preview (1).png" alt="Wingy Character" class="character-image">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Fourth Page - User Information -->
+    <div id="fourth-page" class="fourth-page hidden">
+        <!-- Logo at top -->
+        <header class="logo-header">
+            <div class="logo-container" onclick="goToFirstPage()">
+                <img src="6c359846004a91d18c1b0aad970d6e20805aa5f0.png" alt="WingMann Logo" class="logo-image">
+            </div>
+            <h1 class="logo" onclick="goToFirstPage()">WingMann</h1>
+        </header>
+
+        <!-- User Info Section -->
+        <main class="user-info-section">
+            <div class="user-info-wrapper">
+                <!-- Character on side -->
+                <div class="character-container-fourth">
+                    <div class="character-fourth">
+                        <img src="Character-removebg-preview.png" alt="Wingy Character" class="character-image">
+                    </div>
+                </div>
+
+                <!-- Form Content -->
+                <div class="form-content">
+                    <h2 class="user-info-title">Before you step in, tell me a little about you.<br>I'm all ears.</h2>
+                    
+                    <div class="conversational-form">
+                        <p class="form-paragraph">
+                            I'm 
+                            <span class="input-wrapper">
+                                <input type="text" id="name-input" class="inline-input" placeholder="your name" autocapitalize="words">
+                            </span>
+                            . I'm 
+                            <span class="input-wrapper">
+                                <input type="number" id="age-input" class="inline-input" placeholder="age" min="20">
+                            </span>
+                            years old                            . I identify as 
+                            <span class="input-wrapper">
+                                <select id="gender-input" class="inline-input inline-select">
+                                    <option value="">gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </span>
+                            . I'm based out of 
+                            <span class="input-wrapper">
+                                <select id="city-input" class="inline-input inline-select">
+                                    <option value="">city</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                    <option value="Bengaluru">Bengaluru</option>
+                                </select>
+                            </span>
+                            . You can contact me via&nbsp;
+                            <span class="input-wrapper">
+                                <input type="text" id="contact-input" class="inline-input" placeholder="mobile / email">
+                            </span>
+                            .
+                        </p>
+                        <div id="contact-error" class="contact-error hidden"></div>
+                    </div>
+                    
+                    <button id="form-submit-btn" class="form-submit-btn">let's do this! </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Question Pages -->
+    <!-- Question 1 -->
+    <div id="question-page-1" class="question-page hidden">
+        <header class="logo-header">
+            <div class="logo-container">
+                <img src="6c359846004a91d18c1b0aad970d6e20805aa5f0.png" alt="WingMann Logo" class="logo-image">
+                <h1 class="logo">WingMann</h1>
+            </div>
+        </header>
+        <main class="question-page-content">
+            <div class="question-wrapper">
+                <div class="character-container-question">
+                    <div class="character-question">
+                        <img src="Character-removebg-preview.png" alt="Wingy Character" class="character-image">
+                    </div>
+                </div>
+                <div class="question-form-wrapper">
+                    <div class="question-page-indicator">1/4</div>
+                    <h3 class="question-context">A Few Questions That Actually Matter.</h3>
+                    <h2 class="question-title">What best describes where you are in your life right now, when it comes to dating and relationships?</h2>
+                    <textarea id="answer-1" class="answer-textarea" placeholder="Share your thoughts..." autocapitalize="sentences"></textarea>
+                    <div class="question-nav-buttons">
+                        <button class="nav-btn prev-btn" onclick="goToPreviousQuestion(1)">← back</button>
+                        <button class="nav-btn next-btn" onclick="goToNextQuestion(1)">next →</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Question 2 -->
+    <div id="question-page-2" class="question-page hidden">
+        <header class="logo-header">
+            <div class="logo-container">
+                <img src="6c359846004a91d18c1b0aad970d6e20805aa5f0.png" alt="WingMann Logo" class="logo-image">
+                <h1 class="logo">WingMann</h1>
+            </div>
+        </header>
+        <main class="question-page-content">
+            <div class="question-wrapper">
+                <div class="character-container-question">
+                    <div class="character-question">
+                        <img src="Character-removebg-preview.png" alt="Wingy Character" class="character-image">
+                    </div>
+                </div>
+                <div class="question-form-wrapper">
+                    <div class="question-page-indicator">2/4</div>
+                    <h3 class="question-context">A Few Questions That Actually Matter.</h3>
+                    <h2 class="question-title">When you think about connecting with someone through this experience, what are you most hoping for?</h2>
+                    <textarea id="answer-2" class="answer-textarea" placeholder="Share your thoughts..." autocapitalize="sentences"></textarea>
+                    <div class="question-nav-buttons">
+                        <button class="nav-btn prev-btn" onclick="goToPreviousQuestion(2)">← back</button>
+                        <button class="nav-btn next-btn" onclick="goToNextQuestion(2)">next →</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Question 3 -->
+    <div id="question-page-3" class="question-page hidden">
+        <header class="logo-header">
+            <div class="logo-container">
+                <img src="6c359846004a91d18c1b0aad970d6e20805aa5f0.png" alt="WingMann Logo" class="logo-image">
+                <h1 class="logo">WingMann</h1>
+            </div>
+        </header>
+        <main class="question-page-content">
+            <div class="question-wrapper">
+                <div class="character-container-question">
+                    <div class="character-question">
+                        <img src="Character-removebg-preview.png" alt="Wingy Character" class="character-image">
+                    </div>
+                </div>
+                <div class="question-form-wrapper">
+                    <div class="question-page-indicator">3/4</div>
+                    <h3 class="question-context">A Few Questions That Actually Matter.</h3>
+                    <h2 class="question-title">In close relationships, when emotions run high or things feel uncertain, what do you usually do?</h2>
+                    <textarea id="answer-3" class="answer-textarea" placeholder="Share your thoughts..." autocapitalize="sentences"></textarea>
+                    <div class="question-nav-buttons">
+                        <button class="nav-btn prev-btn" onclick="goToPreviousQuestion(3)">← back</button>
+                        <button class="nav-btn next-btn" onclick="goToNextQuestion(3)">next →</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Question 4 -->
+    <div id="question-page-4" class="question-page hidden">
+        <header class="logo-header">
+            <div class="logo-container">
+                <img src="6c359846004a91d18c1b0aad970d6e20805aa5f0.png" alt="WingMann Logo" class="logo-image">
+                <h1 class="logo">WingMann</h1>
+            </div>
+        </header>
+        <main class="question-page-content">
+            <div class="question-wrapper">
+                <div class="character-container-question">
+                    <div class="character-question">
+                        <img src="Character-removebg-preview.png" alt="Wingy Character" class="character-image">
+                    </div>
+                </div>
+                <div class="question-form-wrapper">
+                    <div class="question-page-indicator">4/4</div>
+                    <h3 class="question-context">A Few Questions That Actually Matter.</h3>
+                    <h2 class="question-title">What matters most to you for feeling comfortable and respected while getting to know someone?</h2>
+                    <textarea id="answer-4" class="answer-textarea" placeholder="Share your thoughts..." autocapitalize="sentences"></textarea>
+                    <div class="question-nav-buttons">
+                        <button class="nav-btn prev-btn" onclick="goToPreviousQuestion(4)">← back</button>
+                        <button class="nav-btn submit-final-btn" onclick="submitAllAnswers()">submit & slay! 💅</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Final Thank You Page -->
+    <div id="final-page" class="final-page hidden">
+        <header class="logo-header">
+            <div class="logo-container">
+                <img src="6c359846004a91d18c1b0aad970d6e20805aa5f0.png" alt="WingMann Logo" class="logo-image">
+                <h1 class="logo">WingMann</h1>
+            </div>
+        </header>
+        <main class="final-page-content">
+            <div class="final-wrapper">
+                <!-- Character Image (decorative background) -->
+                <div class="character-image-container">
+                    <img src="Character (2).png" alt="Wingy Character" class="final-character-image">
+                </div>
+                
+                <!-- Thank You Content - Invitation Card -->
+                <div class="thank-you-content">
+                    <h2 class="thank-you-title">On 31st Jan 2026, WingMann goes live.</h2>
+                    <p class="launch-date">And that's when you'll finally realise what's been quietly missing all this time.</p>
+                    <p class="meaningful-message">Not more matches.<br>Not more chats.<br>But something that actually feels right.</p>
+                    
+                    <div class="social-section">
+                        <p class="stay-connected">stay connected</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/your_wingmann?igsh=MXN0Zmd5MjR5YTE1bQ==" class="social-link instagram" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://www.linkedin.com/company/yourwingmann/" class="social-link linkedin" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
