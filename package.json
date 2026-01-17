@@ -8,10 +8,11 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
+    "@google-cloud/storage": "^7.0.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "express": "^4.18.2",
-    "xlsx": "^0.18.5",
-    "@google-cloud/storage": "^6.13.0"
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
