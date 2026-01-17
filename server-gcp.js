@@ -1,4 +1,10 @@
+// Backend server optimized for Google Cloud Platform
+// Uses Cloud Storage for persistent file storage (required for Cloud Run)
+// Run with: node server-gcp.js
+// Make sure to install dependencies: npm install express cors xlsx @google-cloud/storage dotenv
 
+// Load environment variables from .env file
+require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
