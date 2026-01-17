@@ -1,11 +1,14 @@
 // Backend server to collect all submissions
 // Run with: node server.js
-// Make sure to install dependencies: npm install express cors xlsx
+// Make sure to install dependencies: npm install express cors xlsx dotenv
 // 
 // IMPORTANT: Data Export Endpoints:
 // - CSV: GET /api/download?format=csv
 // - Excel: GET /api/download?format=xlsx
 // All form submissions are automatically saved to wingmann_submissions.json
+
+// Load environment variables from .env file
+require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
