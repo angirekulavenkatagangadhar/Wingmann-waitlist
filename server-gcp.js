@@ -1,7 +1,4 @@
-// Backend server optimized for Google Cloud Platform
-// Uses Cloud Storage for persistent file storage (required for Cloud Run)
-// Run with: node server-gcp.js
-// Make sure to install dependencies: npm install express cors xlsx @google-cloud/storage
+
 
 const express = require('express');
 const cors = require('cors');
@@ -9,7 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const XLSX = require('xlsx');
 
-// Google Cloud Storage (only if in GCP environment)
+// Google Cloud Storage with Authentication
 let storage = null;
 let bucket = null;
 const USE_CLOUD_STORAGE = process.env.GOOGLE_CLOUD_PROJECT || process.env.GCP_PROJECT;
@@ -17,19 +14,59 @@ const USE_CLOUD_STORAGE = process.env.GOOGLE_CLOUD_PROJECT || process.env.GCP_PR
 if (USE_CLOUD_STORAGE) {
     try {
         const { Storage } = require('@google-cloud/storage');
-        storage = new Storage();
-        bucket = storage.bucket(process.env.GCS_BUCKET_NAME || 'wingmann-submissions');
-        console.log('✅ Using Google Cloud Storage for file persistence');
+        
+        // Initialize with proper authentication
+        const storageOptions = {};
+        
+        // Use service account key file if provided
+        if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+            storageOptions.keyFilename = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+            console.log('🔑 Using service account key:', process.env.GOOGLE_APPLICATION_CREDENTIALS);
+        } else {
+            console.log('🔑 Using Application Default Credentials (ADC)');
+        }
+        
+        // Set project ID explicitly
+        if (process.env.GOOGLE_CLOUD_PROJECT) {
+            storageOptions.projectId = process.env.GOOGLE_CLOUD_PROJECT;
+        }
+        
+        storage = new Storage(storageOptions);
+        
+        const bucketName = process.env.GCS_BUCKET_NAME || 'wingmann-submissions';
+        bucket = storage.bucket(bucketName);
+        
+        console.log('✅ Google Cloud Storage initialized');
+        console.log('📦 Bucket:', bucketName);
+        console.log('🏢 Project:', process.env.GOOGLE_CLOUD_PROJECT || 'auto-detected');
+        
     } catch (error) {
-        console.warn('⚠️ Cloud Storage not available, using local files:', error.message);
+        console.error('❌ Cloud Storage initialization failed:', error.message);
+        console.warn('⚠️ Falling back to local file storage');
     }
 }
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Security: Secret key for data export
-const DOWNLOAD_KEY = process.env.DOWNLOAD_KEY || 'YOUR_SECRET_KEY_HERE';
+const DOWNLOAD_KEY = process.env.DOWNLOAD_KEY;
+
+// Validate critical environment variables in production
+if (NODE_ENV === 'production') {
+    if (!DOWNLOAD_KEY || DOWNLOAD_KEY === 'YOUR_SECRET_KEY_HERE') {
+        console.error(' CRITICAL: DOWNLOAD_KEY not set or using default value!');
+        console.error(' Set a strong DOWNLOAD_KEY environment variable before deploying to production');
+        process.exit(1);
+    }
+    
+    if (!process.env.GCS_BUCKET_NAME) {
+        console.warn('⚠️ WARNING: GCS_BUCKET_NAME not set, using default "wingmann-submissions"');
+    }
+    
+    console.log('✅ Production environment variables validated');
+}
 
 // Middleware
 app.use(cors());
